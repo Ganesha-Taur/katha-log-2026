@@ -78,20 +78,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'kathalog.wsgi.application'
 
 
+load_dotenv()
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
 DATABASES = {
+    #the database is now secured
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        #now our database info is protected
-        'NAME': os.getenv('kathalog'),
-        'USER': os.getenv('root'),
-        'PASSWORD': os.getenv('Ganesh@123'),
-        'HOST': os.getenv('localhost'),  # Use '127.0.0.1' or server IP if remote
-        'PORT': os.getenv('3306'),       # Default MySQL port
-       },
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
+}
 
 
 

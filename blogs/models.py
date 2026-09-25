@@ -12,15 +12,15 @@ class category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
 
-    #str repentor of category model
+    #str reprentor of category model
     def __str__(self):
         return self.category_name
 
 #Drop down for status presend in blog model
 
 STATUS_CHOISES = (
-    (0, 'Draft'),
-    (1, 'Published')
+    ('Draft', 'Draft'),
+    ('Published', 'Published')
 )
 
 #Blog Model
@@ -29,9 +29,10 @@ class Blog(models.Model):
     slug = models.SlugField(max_length=150)
     category = models.ForeignKey(category, on_delete=models.CASCADE)
     featured_image = models.ImageField(upload_to='upload/%Y/%m/%d')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     short_description = models.TextField(max_length=500)
     blog_body = models.TextField(max_length=2000)
-    status = models.IntegerField(choices=STATUS_CHOISES, default= 0)
+    status = models.CharField(max_length=30,choices=STATUS_CHOISES, default= 'Draft')
     is_featured = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
