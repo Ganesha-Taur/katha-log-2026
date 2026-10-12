@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 #External apps
 EXTERNAL_APPS = [
     'blogs',
+    'about',
 ]
 
 INSTALLED_APPS += EXTERNAL_APPS
@@ -71,6 +72,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'blogs.context_processors.get_categories',
+                'blogs.context_processors.get_social_links',
             ],
         },
     },

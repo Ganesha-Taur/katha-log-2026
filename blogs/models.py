@@ -40,3 +40,4 @@ class Blog(models.Model):
     #str repentor of blog model
     def __str__(self):
         return self.title
+
