@@ -45,6 +45,8 @@ INSTALLED_APPS = [
 EXTERNAL_APPS = [
     'blogs',
     'about',
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 INSTALLED_APPS += EXTERNAL_APPS
@@ -152,3 +154,6 @@ MAILERS = {
 #Media File Configuration
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
+
+#for form design 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
